@@ -42,7 +42,7 @@
             style="@style/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="32dp"
             android:text="@={score.teamA}"
             android:textSize="48sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -88,12 +88,13 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:onClick="@{()->viewModel.resetClicked()}"
             android:text="@string/reset"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintBottom_toBottomOf="@+id/button3"
+            app:layout_constraintEnd_toStartOf="@+id/button7"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="@+id/button3" />
 
         <TextView
             android:id="@+id/textView3"
@@ -111,7 +112,7 @@
             style="@style/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="32dp"
             android:text="@={score.teamB}"
             android:textSize="48sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,6 +165,8 @@
             android:onClick="@{()->viewModel.freeThrowBClicked(score)}"
             android:text="@string/free_throw"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button4"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/button6" />
     </androidx.constraintlayout.widget.ConstraintLayout>

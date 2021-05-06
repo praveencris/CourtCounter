@@ -1,7 +1,6 @@
 package com.example.courtlayout
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -14,18 +13,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
+        viewModel = ViewModelProvider(this)
             .get(MainViewModel::class.java)
+        binding.score = Score(0, 0)
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        binding.button.setOnClickListener(View.OnClickListener {
-            var score = binding.textView2.text.toString().toInt()
-            score += 3
-            viewModel.setTeamAScore(score)
-        })
+
 
         viewModel.teamAScore.observe(this, Observer { score ->
             binding.textView2.text = score.toString()
+        })
+
+        viewModel.teamBScore.observe(this, Observer { score ->
+            binding.textView4.text = score.toString()
         })
 
     }
