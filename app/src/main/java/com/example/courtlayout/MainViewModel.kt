@@ -9,52 +9,37 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _teamAScore: MutableLiveData<Int> = MutableLiveData()
     val teamAScore: LiveData<Int> = _teamAScore
-/*
+
     private val _teamBScore: MutableLiveData<Int> = MutableLiveData()
-    val teamBScore: LiveData<Int> = _teamBScore*/
+    val teamBScore: LiveData<Int> = _teamBScore
 
-
-    fun setTeamAScore(score:Int){
-        _teamAScore.value=score
+    fun plusThreeAClicked(score: Score) {
+        _teamAScore.value = score.teamA.toInt() + 3
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    fun plusThreeAClicked() {
-
+    fun plusTwoAClicked(score: Score) {
+        _teamAScore.value = score.teamA.toInt() + 2
     }
 
-    fun plusTwoAClicked() {
-
+    fun freeThrowAClicked(score: Score) {
+        _teamAScore.value = score.teamA.toInt()
     }
 
-    fun freeThrowAClicked() {
-
+    fun plusThreeBClicked(score: Score) {
+        _teamBScore.value = score.teamB.toInt() + 3
     }
 
-    fun plusThreeBClicked() {
-
+    fun plusTwoBClicked(score: Score) {
+        _teamBScore.value = score.teamB.toInt() + 2
     }
 
-    fun plusTwoBClicked() {
-
-    }
-
-    fun freeThrowBClicked() {
-
+    fun freeThrowBClicked(score: Score) {
+        _teamBScore.value = score.teamB.toInt()
     }
 
     fun resetClicked() {
-
+        _teamAScore.value = 0
+        _teamBScore.value = 0
     }
 
 
