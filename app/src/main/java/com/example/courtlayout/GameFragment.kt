@@ -58,7 +58,7 @@ class GameFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Log.d("TAG","onActivityCreated")
-        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(GameViewModel::class.java)
         // TODO: Use the ViewModel
         val score: Score = Score(0, 0)
         binding.score = score

@@ -1,10 +1,16 @@
 package com.example.courtlayout
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("TAG","ViewModel Cleared")
+    }
 
     private val _teamAScore: MutableLiveData<Int> = MutableLiveData()
     val teamAScore: LiveData<Int> = _teamAScore
