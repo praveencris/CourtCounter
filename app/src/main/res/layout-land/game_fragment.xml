@@ -7,9 +7,9 @@
         <variable
             name="score"
             type="com.example.courtlayout.Score" />
-       <variable
-           name="viewModel"
-           type="com.example.courtlayout.MainViewModel" />
+        <variable
+            name="viewModel"
+            type="com.example.courtlayout.GameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -163,7 +163,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline2"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
-         app:layout_constraintBottom_toTopOf="@id/button4"
+            app:layout_constraintBottom_toTopOf="@id/button4"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

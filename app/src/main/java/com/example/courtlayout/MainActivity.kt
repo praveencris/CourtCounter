@@ -9,24 +9,22 @@ import com.example.courtlayout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
-            .get(MainViewModel::class.java)
-        binding.viewModel = viewModel
-        val score: Score = Score(0, 0)
-        binding.score = score
-        binding.lifecycleOwner = this
 
+        val fragmentManager=supportFragmentManager;
+        val name:String="Game Data";
+        val fragment= fragmentManager.findFragmentById(R.id.container)
+        if(fragment==null){
+            fragmentManager.beginTransaction()
+                .add(R.id.container,GameFragment.newInstance(name))
+                .commit();
+        }else{
+            fragmentManager.beginTransaction()
+                .replace(R.id.container,GameFragment.newInstance(name))
+                .commit();
+        }
 
-        viewModel.teamAScore.observe(this, Observer { it ->
-            score.teamA = it.toString()
-        })
-
-        viewModel.teamBScore.observe(this, Observer { it ->
-            score.teamB = it.toString()
-        })
     }
 }
